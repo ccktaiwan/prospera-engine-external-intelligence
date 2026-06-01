@@ -1,0 +1,4 @@
+{"timestamp": "2026-06-01T20:27:49.330093", "source": "external_intelligence", "signal_type": "subsidy", "tenant_id": "phoenix", "status": "SIGNAL_DETECTED", "gid": "GID-70A84258C509", "workflow_suggested": "gengrant", "data_source": "mock"}
+{"timestamp": "2026-06-01T20:27:54.105545", "source": "external_intelligence", "signal_type": "subsidy", "tenant_id": "phoenix", "status": "SIGNAL_DETECTED", "gid": "GID-70A84258C509", "workflow_suggested": "gengrant", "data_source": "mock"}
+{"timestamp": "2026-06-01T20:27:55.555653", "source": "external_intelligence", "signal_type": "subsidy", "tenant_id": "phoenix", "status": "SIGNAL_DETECTED", "gid": "GID-TEST000001", "workflow_suggested": "gengrant", "data_source": "mock"}
+{"timestamp": "2026-06-01T20:27:55.859101", "source": "external_intelligence", "signal_type": "subsidy", "tenant_id": "phoenix", "status": "SIGNAL_DETECTED", "gid": "GID-70A84258C509", "workflow_suggested": "gengrant", "data_source": "mock"}
