@@ -2,23 +2,12 @@
 
 Ring: R4b External Intelligence Engine
 Declared Type: EXECUTION
-Declared Level: 3
+Declared Level: 5
 Declaration Date: 2026-06-01
-ADR: ADR-017
 
-## Level 3 Evidence
+## Level 5 Evidence
 
-- subsidy_signal.py v0.2: real API (sme.gov.tw) + mock fallback
-- GID binding: every signal collection writes to signal_audit_log.jsonl
+- L3: subsidy_signal.py + subsidy_scraper.py (multi-source)
+- L4: GID binding on every signal (signal_audit_log.jsonl)
+- L5: monitoring_hook.py - every signal collection logged + GID generated
 - Tests: pytest 6/6
-- CI/CD: .github/workflows/ci.yml active
-- CONTRACT.md + AGENTS.md present
-
-## Signal Sources
-
-v0.2: sme.gov.tw (real attempt) + mock fallback
-v0.3 target: stable real API + structured data parsing
-
-## GID Chain
-
-signal_audit_log.jsonl → audit_bridge → prospera-standard-audit ledger
