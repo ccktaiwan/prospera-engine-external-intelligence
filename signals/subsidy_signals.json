@@ -2,8 +2,8 @@
   "signal_type": "subsidy",
   "source": "taiwan_government_subsidy",
   "tenant_id": "phoenix",
-  "timestamp": "2026-06-02T08:12:12.729137",
-  "data_source": "mock",
+  "timestamp": "2026-06-02T08:18:24.404317",
+  "data_source": "mock_structured",
   "status": "SIGNAL_DETECTED",
   "top_signal": "健康產業創新研發補助",
   "urgency": "LOW",
@@ -14,60 +14,49 @@
     {
       "name": "健康產業創新研發補助",
       "deadline": "2026-08-15",
-      "target": [
-        "健康管理",
-        "醫療",
-        "銀髮族"
-      ],
-      "amount": 200000,
       "relevance_tags": [
         "health",
         "phoenix",
         "aging"
       ],
-      "source": "mock",
+      "source": "mock_structured",
+      "source_name": "Structured Mock",
+      "scraped_at": "2026-06-02T08:18:24.068346",
       "relevance_score": 3,
       "days_until_deadline": 73,
       "urgency": "LOW"
     },
     {
-      "name": "中小企業數位轉型補助計畫",
+      "name": "中小企業數位轉型補助計畫 2026",
       "deadline": "2026-07-31",
-      "target": [
-        "中小企業",
-        "數位轉型",
-        "AI"
-      ],
-      "amount": 100000,
       "relevance_tags": [
         "health",
         "consulting",
-        "digital"
+        "digital",
+        "SME"
       ],
-      "source": "mock",
+      "source": "mock_structured",
+      "source_name": "Structured Mock",
+      "scraped_at": "2026-06-02T08:18:24.068346",
       "relevance_score": 2,
       "days_until_deadline": 58,
       "urgency": "MEDIUM"
     },
     {
-      "name": "品牌形象升級輔導計畫",
+      "name": "企業 AI 導入輔導計畫",
       "deadline": "2026-09-30",
-      "target": [
-        "品牌",
-        "中小企業",
-        "行銷"
-      ],
-      "amount": 50000,
       "relevance_tags": [
-        "brand",
-        "marketing",
+        "AI",
+        "digital",
         "consulting"
       ],
-      "source": "mock",
+      "source": "mock_structured",
+      "source_name": "Structured Mock",
+      "scraped_at": "2026-06-02T08:18:24.068346",
       "relevance_score": 1,
       "days_until_deadline": 119,
       "urgency": "LOW"
     }
   ],
-  "gid": "GID-71B22EDDB94E"
+  "gid": "GID-C6D1591F8BB3"
 }

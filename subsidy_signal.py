@@ -1,3 +1,9 @@
+try:
+    from reliable_signal_collector import collect_reliable_signals as _collect_reliable
+    _RELIABLE_AVAILABLE = True
+except ImportError:
+    _RELIABLE_AVAILABLE = False
+
 """
 subsidy_signal.py | R4b External Intelligence Engine | v0.2
 ADR-017: Taiwan government subsidy signal collection.
@@ -93,6 +99,11 @@ except ImportError:
     _RSS_AVAILABLE = False
 
 def collect_signals() -> list:
+    if _RELIABLE_AVAILABLE:
+        results, src = _collect_reliable()
+        if results:
+            return results
+
     if _RSS_AVAILABLE:
         rss, src = _collect_rss()
         if rss: return rss
