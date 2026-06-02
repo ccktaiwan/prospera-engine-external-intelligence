@@ -85,7 +85,18 @@ def fetch_real_subsidies() -> list:
     return []
 
 
+
+try:
+    from rss_signal_collector import collect_all_signals as _collect_rss
+    _RSS_AVAILABLE = True
+except ImportError:
+    _RSS_AVAILABLE = False
+
 def collect_signals() -> list:
+    if _RSS_AVAILABLE:
+        rss, src = _collect_rss()
+        if rss: return rss
+
     """Collect signals: try real API first, fallback to mock."""
     real = fetch_real_subsidies()
     return real if real else MOCK_SUBSIDIES
