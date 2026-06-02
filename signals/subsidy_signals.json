@@ -2,7 +2,7 @@
   "signal_type": "subsidy",
   "source": "taiwan_government_subsidy",
   "tenant_id": "phoenix",
-  "timestamp": "2026-06-02T02:50:31.878093",
+  "timestamp": "2026-06-02T02:56:17.253180",
   "data_source": "mock",
   "status": "SIGNAL_DETECTED",
   "top_signal": "健康產業創新研發補助",
@@ -69,5 +69,5 @@
       "urgency": "LOW"
     }
   ],
-  "gid": "GID-BC12F174A00A"
+  "gid": "GID-AD2D16CEF981"
 }
