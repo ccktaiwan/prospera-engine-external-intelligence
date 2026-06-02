@@ -2,7 +2,7 @@
   "signal_type": "subsidy",
   "source": "taiwan_government_subsidy",
   "tenant_id": "phoenix",
-  "timestamp": "2026-06-02T08:18:24.404317",
+  "timestamp": "2026-06-02T08:25:05.006101",
   "data_source": "mock_structured",
   "status": "SIGNAL_DETECTED",
   "top_signal": "健康產業創新研發補助",
@@ -21,7 +21,7 @@
       ],
       "source": "mock_structured",
       "source_name": "Structured Mock",
-      "scraped_at": "2026-06-02T08:18:24.068346",
+      "scraped_at": "2026-06-02T08:25:04.415524",
       "relevance_score": 3,
       "days_until_deadline": 73,
       "urgency": "LOW"
@@ -37,7 +37,7 @@
       ],
       "source": "mock_structured",
       "source_name": "Structured Mock",
-      "scraped_at": "2026-06-02T08:18:24.068346",
+      "scraped_at": "2026-06-02T08:25:04.415524",
       "relevance_score": 2,
       "days_until_deadline": 58,
       "urgency": "MEDIUM"
@@ -52,11 +52,11 @@
       ],
       "source": "mock_structured",
       "source_name": "Structured Mock",
-      "scraped_at": "2026-06-02T08:18:24.068346",
+      "scraped_at": "2026-06-02T08:25:04.415524",
       "relevance_score": 1,
       "days_until_deadline": 119,
       "urgency": "LOW"
     }
   ],
-  "gid": "GID-C6D1591F8BB3"
+  "gid": "GID-DBAF0EA4522C"
 }
