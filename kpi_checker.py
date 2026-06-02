@@ -78,5 +78,5 @@ def check_kpis() -> dict:
 
 if __name__ == "__main__":
     result = check_kpis()
-    print(json.dumps(result, ensure_ascii=False, indent=2))
-    print(f"KPI Score: {result['kpi_score']}% - {result['status']}")
+    print("KPI_RESULT:" + json.dumps(result, ensure_ascii=False))
+    print(f"KPI:{result['kpi_score']}%:{result['status']}")
