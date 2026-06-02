@@ -2,12 +2,12 @@
   "signal_type": "subsidy",
   "source": "taiwan_government_subsidy",
   "tenant_id": "phoenix",
-  "timestamp": "2026-06-01T20:27:55.859101",
+  "timestamp": "2026-06-02T02:31:12.648347",
   "data_source": "mock",
   "status": "SIGNAL_DETECTED",
   "top_signal": "健康產業創新研發補助",
   "urgency": "LOW",
-  "days_until_deadline": 74,
+  "days_until_deadline": 73,
   "recommended_action": "評估申請",
   "suggested_workflow": "gengrant",
   "insights": [
@@ -27,7 +27,7 @@
       ],
       "source": "mock",
       "relevance_score": 3,
-      "days_until_deadline": 74,
+      "days_until_deadline": 73,
       "urgency": "LOW"
     },
     {
@@ -46,7 +46,7 @@
       ],
       "source": "mock",
       "relevance_score": 2,
-      "days_until_deadline": 59,
+      "days_until_deadline": 58,
       "urgency": "MEDIUM"
     },
     {
@@ -65,9 +65,9 @@
       ],
       "source": "mock",
       "relevance_score": 1,
-      "days_until_deadline": 120,
+      "days_until_deadline": 119,
       "urgency": "LOW"
     }
   ],
-  "gid": "GID-70A84258C509"
+  "gid": "GID-C7AA01076170"
 }
