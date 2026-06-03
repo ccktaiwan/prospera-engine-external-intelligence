@@ -2,12 +2,12 @@
   "signal_type": "subsidy",
   "source": "taiwan_government_subsidy",
   "tenant_id": "phoenix",
-  "timestamp": "2026-06-02T08:25:05.006101",
+  "timestamp": "2026-06-03T09:03:00.385679",
   "data_source": "mock_structured",
   "status": "SIGNAL_DETECTED",
   "top_signal": "健康產業創新研發補助",
   "urgency": "LOW",
-  "days_until_deadline": 73,
+  "days_until_deadline": 72,
   "recommended_action": "評估申請",
   "suggested_workflow": "gengrant",
   "insights": [
@@ -21,9 +21,9 @@
       ],
       "source": "mock_structured",
       "source_name": "Structured Mock",
-      "scraped_at": "2026-06-02T08:25:04.415524",
+      "scraped_at": "2026-06-03T09:02:59.111165",
       "relevance_score": 3,
-      "days_until_deadline": 73,
+      "days_until_deadline": 72,
       "urgency": "LOW"
     },
     {
@@ -37,9 +37,9 @@
       ],
       "source": "mock_structured",
       "source_name": "Structured Mock",
-      "scraped_at": "2026-06-02T08:25:04.415524",
+      "scraped_at": "2026-06-03T09:02:59.111165",
       "relevance_score": 2,
-      "days_until_deadline": 58,
+      "days_until_deadline": 57,
       "urgency": "MEDIUM"
     },
     {
@@ -52,11 +52,11 @@
       ],
       "source": "mock_structured",
       "source_name": "Structured Mock",
-      "scraped_at": "2026-06-02T08:25:04.415524",
+      "scraped_at": "2026-06-03T09:02:59.111165",
       "relevance_score": 1,
-      "days_until_deadline": 119,
+      "days_until_deadline": 118,
       "urgency": "LOW"
     }
   ],
-  "gid": "GID-DBAF0EA4522C"
+  "gid": "GID-0E7317F1A990"
 }
