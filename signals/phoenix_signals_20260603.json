@@ -1,6 +1,6 @@
 {
   "tenant_id": "phoenix",
-  "collected_at": "2026-06-03T16:48:48.525079",
+  "collected_at": "2026-06-03T16:57:18.519574",
   "signals": [
     {
       "tenant_id": "phoenix",
@@ -11,8 +11,8 @@
       "stage": "REVIEWED",
       "urgency": "medium",
       "message": "中小企業數位轉型補助計畫 2026 截止日在 57 天後（2026-07-31），目前狀態：REVIEWED",
-      "detected_at": "2026-06-03T16:48:48.525079",
-      "gid": "GID-AF78C3271387"
+      "detected_at": "2026-06-03T16:57:18.519574",
+      "gid": "GID-8F961868243F"
     },
     {
       "tenant_id": "phoenix",
@@ -23,8 +23,8 @@
       "stage": "IDENTIFIED",
       "urgency": "medium",
       "message": "測試補助 截止日在 210 天後（2026-12-31），目前狀態：IDENTIFIED",
-      "detected_at": "2026-06-03T16:48:48.525079",
-      "gid": "GID-F54CB642E75A"
+      "detected_at": "2026-06-03T16:57:18.519574",
+      "gid": "GID-57A4304F7D96"
     },
     {
       "tenant_id": "phoenix",
@@ -35,8 +35,8 @@
       "stage": "REVIEWED",
       "urgency": "medium",
       "message": "健康產業創新研發補助 截止日在 72 天後（2026-08-15），目前狀態：REVIEWED",
-      "detected_at": "2026-06-03T16:48:48.525079",
-      "gid": "GID-B23ECD2EF361"
+      "detected_at": "2026-06-03T16:57:18.519574",
+      "gid": "GID-5F35A4A2F94F"
     },
     {
       "tenant_id": "phoenix",
@@ -47,8 +47,8 @@
       "stage": "REVIEWED",
       "urgency": "medium",
       "message": "中小企業數位轉型補助計畫 2026 截止日在 57 天後（2026-07-31），目前狀態：REVIEWED",
-      "detected_at": "2026-06-03T16:48:48.525079",
-      "gid": "GID-7A2A7C32028A"
+      "detected_at": "2026-06-03T16:57:18.519574",
+      "gid": "GID-AF443088BFB1"
     }
   ]
 }
