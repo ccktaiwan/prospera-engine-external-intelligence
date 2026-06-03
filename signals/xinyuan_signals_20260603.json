@@ -1,0 +1,18 @@
+{
+  "tenant_id": "xinyuan",
+  "collected_at": "2026-06-03T16:48:48.525079",
+  "signals": [
+    {
+      "tenant_id": "xinyuan",
+      "signal_type": "grant_deadline",
+      "subsidy_name": "中小企業數位轉型補助計畫 2026",
+      "days_left": 57,
+      "deadline": "2026-07-31",
+      "stage": "EVALUATED",
+      "urgency": "medium",
+      "message": "中小企業數位轉型補助計畫 2026 截止日在 57 天後（2026-07-31），目前狀態：EVALUATED",
+      "detected_at": "2026-06-03T16:48:48.525079",
+      "gid": "GID-4D02B01C4125"
+    }
+  ]
+}
