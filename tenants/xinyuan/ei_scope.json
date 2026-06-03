@@ -1,0 +1,24 @@
+{
+  "tenant_id": "xinyuan",
+  "industry": "interior_engineering",
+  "signal_categories": [
+    "government_subsidies",
+    "real_estate_market",
+    "design_trends",
+    "construction_material_prices"
+  ],
+  "priority_keywords": [
+    "室內設計",
+    "裝修補助",
+    "房市",
+    "TOTO",
+    "浴室翻新",
+    "磁磚"
+  ],
+  "alert_threshold": "medium",
+  "exclude_keywords": [
+    "汽車",
+    "農業"
+  ],
+  "updated_at": "2026-06-03"
+}
