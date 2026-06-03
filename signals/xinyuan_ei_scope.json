@@ -1,0 +1,19 @@
+{
+  "tenant_id": "xinyuan",
+  "industry": "interior_renovation",
+  "signal_categories": [
+    "renovation_subsidies",
+    "peak_season",
+    "building_policy",
+    "design_trends"
+  ],
+  "priority_keywords": [
+    "裝修旺季",
+    "老屋翻新",
+    "室內裝修補助",
+    "住宅更新"
+  ],
+  "alert_threshold": "medium",
+  "updated_at": "2026-06-03T16:38:12.006443",
+  "session": 55
+}

@@ -1,0 +1,21 @@
+{
+  "tenant_id": "phoenix",
+  "industry": "health_management",
+  "signal_categories": [
+    "government_subsidies",
+    "nhia_policy",
+    "aging_trends",
+    "health_tech",
+    "ltc_policy"
+  ],
+  "priority_keywords": [
+    "銀髮族",
+    "長照",
+    "健保補助",
+    "健康管理",
+    "慢性病"
+  ],
+  "alert_threshold": "high",
+  "updated_at": "2026-06-03T16:38:12.006443",
+  "session": 55
+}
