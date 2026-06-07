@@ -1,2 +1,8 @@
 __pycache__/
 *.pyc
+execution_log.jsonl
+remediation_log.jsonl
+orchestrator_remediation_log.jsonl
+kpi_history.jsonl
+monitoring_log.jsonl
+health_*.json
