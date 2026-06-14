@@ -8,18 +8,19 @@ Multiple Taiwan government subsidy sources with structured output.
 import requests, json, datetime, os, re
 from bs4 import BeautifulSoup
 
+# 2026-06-14：sme.gov.tw 改版，舊 newslist_en.aspx 已 404；改用現行輔導/補助頁（靜態 HTML，瀏覽器 UA 200）。
 SOURCES = [
     {
-        "name": "MOEA SME Portal",
-        "url": "https://www.sme.gov.tw/sme/newslist_en.aspx",
+        "name": "MOEA SME 中小企業輔導計畫",
+        "url": "https://www.sme.gov.tw/counseling-tw-2874",
         "enabled": True,
         "tags": ["SME", "digital", "consulting"]
     },
     {
-        "name": "Taiwan Government e-service",
-        "url": "https://www.gov.tw/News.aspx?n=9&sms=582",
+        "name": "MOEA SME 輔導計畫(研發創新)",
+        "url": "https://www.sme.gov.tw/counseling-tw-2875",
         "enabled": True,
-        "tags": ["general", "business"]
+        "tags": ["innovation", "research", "SME"]
     },
     {
         "name": "NSTC Grant",
@@ -38,20 +39,30 @@ def scrape_source(source: dict) -> list:
         resp = requests.get(source["url"], timeout=8, headers=HEADERS)
         if resp.status_code != 200: return []
         soup = BeautifulSoup(resp.text, "html.parser")
-        keywords = ["補助", "輔導", "申請", "計畫", "補貼", "獎勵", "grant", "subsidy"]
+        keywords = ["補助", "輔導", "申請", "計畫", "補貼", "獎勵", "研發", "創新", "貸款", "grant", "subsidy"]
+        seen = set()
         for tag in ["h2", "h3", "h4", "li", "a", "td"]:
-            for item in soup.find_all(tag, limit=20):
+            for item in soup.find_all(tag, limit=40):
                 text = item.get_text(strip=True)
-                if len(text) > 8 and any(kw in text for kw in keywords):
-                    results.append({
-                        "name": text[:60],
-                        "source_name": source["name"],
-                        "source_url": source["url"],
-                        "scraped_at": datetime.datetime.utcnow().isoformat(),
-                        "deadline": estimate_deadline(text),
-                        "relevance_tags": source["tags"],
-                        "source": "real_scrape"
-                    })
+                # 過濾過長 nav 串接（真補助標題多 8-40 字）+ 去重
+                if not (8 < len(text) < 40):
+                    continue
+                hit = [kw for kw in keywords if kw in text]
+                # 真補助標題含 1-3 個關鍵字；含 ≥4 個＝導覽選單串接（如「輔導主軸數位轉型研發創新…」），跳過
+                if not hit or len(hit) >= 4:
+                    continue
+                if text in seen:
+                    continue
+                seen.add(text)
+                results.append({
+                    "name": text[:60],
+                    "source_name": source["name"],
+                    "source_url": source["url"],
+                    "scraped_at": datetime.datetime.utcnow().isoformat(),
+                    "deadline": estimate_deadline(text),
+                    "relevance_tags": source["tags"],
+                    "source": "real_scrape"
+                })
         return results[:5]
     except Exception as e:
         return []
