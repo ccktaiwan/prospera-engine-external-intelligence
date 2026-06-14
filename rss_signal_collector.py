@@ -6,31 +6,25 @@ rss_signal_collector.py | R4b | v1.0
 RSS/JSON based signal collection from Taiwan government sources.
 More reliable than HTML scraping.
 """
-import requests, json, datetime, os
+import requests, json, datetime, os, urllib.parse
+
+# 2026-06-14：原政府 RSS/JSON 端點全失效（ey.gov.tw SSL、sbir.org.tw 404、moea 回 HTML 非 JSON、皆無 <item>）。
+# 改用 Google News RSS（免費、穩定、回真 <item>）作議題放大感測器來源——對應雙向生成 External S4「Google/Yahoo News 議題放大」。
+def _gnews(query: str) -> str:
+    q = urllib.parse.quote(query)
+    return f"https://news.google.com/rss/search?q={q}&hl=zh-TW&gl=TW&ceid=TW:zh-Hant"
 
 RSS_SOURCES = [
-    {
-        "name": "Executive Yuan News RSS",
-        "url": "https://www.ey.gov.tw/Page/A1875BB00B09E424/rss",
-        "type": "rss",
-        "tags": ["policy", "government", "business"]
-    },
-    {
-        "name": "MOEA Press Release",
-        "url": "https://www.moea.gov.tw/MNS/populace/news/json_news.aspx",
-        "type": "json",
-        "tags": ["economy", "SME", "digital"]
-    },
-    {
-        "name": "SBIR Taiwan",
-        "url": "https://www.sbir.org.tw/api/v1/programs",
-        "type": "json",
-        "tags": ["startup", "innovation", "subsidy"]
-    }
+    {"name": "Google News｜中小企業補助", "url": _gnews("中小企業補助"),
+     "type": "rss", "tags": ["subsidy", "SME", "policy"]},
+    {"name": "Google News｜數位轉型補助", "url": _gnews("數位轉型 補助 計畫"),
+     "type": "rss", "tags": ["digital", "transformation", "subsidy"]},
+    {"name": "Google News｜SBIR 研發補助", "url": _gnews("SBIR 研發補助"),
+     "type": "rss", "tags": ["innovation", "research", "startup"]},
 ]
 
 HEADERS = {
-    "User-Agent": "Mozilla/5.0 (compatible; ProsperaBot/1.0)",
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
     "Accept": "application/rss+xml, application/json, text/xml, */*"
 }
 
@@ -44,15 +38,16 @@ def fetch_rss(url: str) -> list:
         import re
         items = re.findall(r"<item>(.*?)</item>", resp.text, re.DOTALL)
         results = []
-        for item in items[:5]:
-            title_m = re.search(r"<title><![CDATA[(.*?)]]></title>|<title>(.*?)</title>", item)
-            title = (title_m.group(1) or title_m.group(2) or "").strip() if title_m else ""
+        for item in items[:12]:
+            # CDATA 的 [ ] 需跳脫（原版 <![CDATA[...]]> 未跳脫→永遠抓空）；兼容純文字 title
+            title_m = re.search(r"<title>\s*(?:<!\[CDATA\[(.*?)\]\]>|(.*?))\s*</title>", item, re.DOTALL)
+            title = ((title_m.group(1) or title_m.group(2) or "").strip()) if title_m else ""
             if len(title) > 5:
-                keywords = ["補助","輔導","計畫","申請","補貼","grant","subsidy","數位"]
+                keywords = ["補助","輔導","計畫","申請","補貼","獎勵","研發","創新","貸款","grant","subsidy","數位","轉型","SBIR"]
                 if any(kw in title for kw in keywords):
-                    results.append({"title": title[:60], "source": "rss"})
+                    results.append({"title": title[:80], "source": "rss"})
         return results
-    except:
+    except Exception:
         return []
 
 def fetch_json_api(url: str) -> list:

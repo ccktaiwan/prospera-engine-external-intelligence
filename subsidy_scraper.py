@@ -23,6 +23,12 @@ SOURCES = [
         "tags": ["innovation", "research", "SME"]
     },
     {
+        "name": "MOEA SME 提升服務效能執行計畫清單",
+        "url": "https://www.sme.gov.tw/list-tw-2873",
+        "enabled": True,
+        "tags": ["consulting", "service", "SME"]
+    },
+    {
         "name": "NSTC Grant",
         "url": "https://www.nstc.gov.tw/base/a/link",
         "enabled": False,
@@ -39,22 +45,23 @@ def scrape_source(source: dict) -> list:
         resp = requests.get(source["url"], timeout=8, headers=HEADERS)
         if resp.status_code != 200: return []
         soup = BeautifulSoup(resp.text, "html.parser")
-        keywords = ["補助", "輔導", "申請", "計畫", "補貼", "獎勵", "研發", "創新", "貸款", "grant", "subsidy"]
+        keywords = ["補助", "輔導", "申請", "計畫", "補貼", "獎勵", "研發", "創新", "貸款", "轉型", "服務", "grant", "subsidy"]
         seen = set()
-        for tag in ["h2", "h3", "h4", "li", "a", "td"]:
-            for item in soup.find_all(tag, limit=40):
-                text = item.get_text(strip=True)
-                # 過濾過長 nav 串接（真補助標題多 8-40 字）+ 去重
-                if not (8 < len(text) < 40):
-                    continue
-                hit = [kw for kw in keywords if kw in text]
-                # 真補助標題含 1-3 個關鍵字；含 ≥4 個＝導覽選單串接（如「輔導主軸數位轉型研發創新…」），跳過
-                if not hit or len(hit) >= 4:
-                    continue
-                if text in seen:
-                    continue
-                seen.add(text)
-                results.append({
+        # 只抓帶連結的真項目（a[href]）：真補助/計畫都是可點連結；非連結的導覽串接文字（如
+        # 「輔導主軸數位轉型淨零轉型…」血塊）自然被排除。2026-06-14 改 a[href]，解決 nav 血塊污染。
+        for item in soup.find_all("a", href=True, limit=120):
+            text = item.get_text(strip=True)
+            # 真補助/計畫標題多 6-55 字（含 .pdf 全名）；去重
+            if not (6 <= len(text) <= 55):
+                continue
+            hit = [kw for kw in keywords if kw in text]
+            # 真標題含 1-3 個關鍵字；含 ≥4 個＝導覽選單串接，跳過
+            if not hit or len(hit) >= 4:
+                continue
+            if text in seen:
+                continue
+            seen.add(text)
+            results.append({
                     "name": text[:60],
                     "source_name": source["name"],
                     "source_url": source["url"],
