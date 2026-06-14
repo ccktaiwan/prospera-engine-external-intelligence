@@ -1,0 +1,32 @@
+# gitleaks 設定（PENDING-052 / SECURITY_IMMUNE_SYSTEM P0 — Secret Scanning）
+# 沿用 gitleaks 內建規則集（涵蓋 AWS/GCP/GitHub/Slack/private key 等百餘種），再補 Prospera 專屬。
+title = "Prospera Secret Scanning Config"
+
+[extend]
+useDefault = true   # 繼承 gitleaks 預設規則集（不重造輪子）
+
+# ── Prospera 專屬補充規則 ──
+[[rules]]
+id = "anthropic-api-key"
+description = "Anthropic API key (sk-ant-)"
+regex = '''sk-ant-[A-Za-z0-9_\-]{20,}'''
+keywords = ["sk-ant-"]
+
+[[rules]]
+id = "meta-access-token"
+description = "Meta Graph API long-lived access token (EAA...)"
+regex = '''EAA[A-Za-z0-9]{80,}'''
+keywords = ["EAA"]
+
+# ── 白名單（文件示例/佔位符不算外洩）──
+[allowlist]
+description = "示例/佔位符/範本 — 非真實 secret"
+regexes = [
+    '''sk-ant-api03-\.\.\.''',           # 文件示例
+    '''(?i)(your|example|placeholder|xxx+|redact|<[^>]+>)''',  # 佔位符
+    '''META_ACCESS_TOKEN=\s*$''',        # .env.example 空值
+]
+paths = [
+    '''\.env\.example$''',               # 範本檔（無真值）
+    '''\.gitleaks\.toml$''',             # 本設定檔（含 regex 規則本身）
+]
