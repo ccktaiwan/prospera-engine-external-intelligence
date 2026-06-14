@@ -9,3 +9,8 @@ monitoring_log.jsonl
 health_*.json
 signals/signal_audit_log.jsonl
 signals/signal_audit_log_test.jsonl
+
+# 機密憑證（API key / token）— 絕不進 git（ADR-030 / API Key Safety）
+.env
+.env.local
+*.secret
