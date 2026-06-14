@@ -1,0 +1,13 @@
+# dependabot — 依賴弱點告警 PR（D6 / OWASP LLM03 供應鏈）。僅開 PR，不自動 merge。
+version: 2
+updates:
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 5
+  - package-ecosystem: "pip"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 5
